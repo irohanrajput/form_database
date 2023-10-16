@@ -45,7 +45,7 @@
 <body>
     <div class="container">
         <h2>Contact Us</h2>
-        <form action "" method='POST' id="contact-form">
+        <form action method='POST' id="contact-form">
             {% csrf_token %}
             <div class="form-group">
                 <label for="name">Name:</label>
@@ -63,6 +63,15 @@
                 <label for="yviews">Your Views:</label>
                 <textarea id="yviews" name="yviews" rows="4"></textarea>
             </div>
+
+            <div class="form-group">
+                <label>How do you want us to Contact You ??:</label>
+                <input type="checkbox" name="callme" id="callme" value="True"> Via Phone
+                <input type="checkbox" name="emailme" id="emailme" value="True"> Via Phone
+                <input type="checkbox" name="" id="emailme" value="True"> Via Phone
+            </div>
+            
+
             <div class="form-group">
                 <button type="submit" class="btn" id="submit-button">Submit</button>
             </div>
