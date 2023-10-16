@@ -1,18 +1,28 @@
 from django.shortcuts import render
 from .models import Details
+from django.http import HttpResponseRedirect
 
-def index_views(request):
+def form_view(request):
     if request.method == 'POST':
         fullname = request.POST['fullname']
         email = request.POST['email']
         mobile = request.POST['phone']
-        checkbox1value = request.POST.get('checkbox1', 'False')
-        if checkbox1value == 'True':
-            sendvalue = "yes"
-
-        print(fullname)
-        print(sendvalue)
-        new_query = Details(Name=fullname, email=email, phone=mobile,    if_selected=sendvalue )
+        callcheckbox = request.POST.get('callme', 'False')
+        new_query = Details( Name=fullname, email=email, phone=mobile, if_selected=callcheckbox )
         new_query.save()
 
-    return render (request, 'baseapp/index.html')
+    return render (request, 'baseapp/form.html')
+
+
+def index_view(request):
+    details = Details.objects.all()
+    return render(request, "baseapp/index.html", context={
+        "details": details
+        
+        # "name": details.name,
+        # "email": details.email,
+        # "Phone No: ": details.phone,
+        # "user_says": details.What_Users_Say,
+        # "passengers": flight.passengers.all(),
+        # "non_passengers":Passengers.objects.exclude(flights=flight).all()
+        })
