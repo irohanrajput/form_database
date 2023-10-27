@@ -45,22 +45,23 @@
 <body>
     <div class="container">
         <h2>Contact Us</h2>
+        <h2><a href="index">View Database</a></h2>
         <form action method='POST' id="contact-form">
             {% csrf_token %}
             <div class="form-group">
-                <label for="name">Name:</label>
+                <label>Name:</label>
                 <input type="text" id="fullname" name="fullname" required>
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
+                <lable>Email:</label>
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="phone">Phone Number:</label>
+                <lable>Phone Number:</label>
                 <input type="tel" id="phone" name="phone">
             </div>  
             <div class="form-group">
-                <label for="yviews">Your Views:</label>
+                <lable>Your Views:</label>
                 <textarea id="yviews" name="yviews" rows="4"></textarea>
             </div>
 
@@ -77,15 +78,16 @@
         </form>
     </div>
     <script>
-        document.getElementById("submit-button").addEventListener("click", function() {
-            const name = document.getElementById("name").value;
+        document.getElementById("submit-button").onclick = function() {
+            const name = document.getElementById("fullname").value;
             const email = document.getElementById("email").value;
             const phone = document.getElementById("phone").value;
             const views = document.getElementById("yviews").value;
+            const contact_via_call = document.getElementById("callme").checked ? "Yes" : "No";
+            const contact_via_email = document.getElementById("emailme").checked ? "Yes" : "No";
             
-            
-            alert("Thank You, Information received \nName: " + name + "\nEmail: " + email + "\nPhone: " + phone + "\nViews: " + views);
-        });
+            alert("Thank You, Information received \nName: " + name + "\nEmail: " + email + "\nPhone: " + phone + "\nViews: " + views + "\nAvailable for Call:" + contact_via_call + "\nPrefer emails: " + contact_via_email );
+        };
     </script>
 </body>
 </html>

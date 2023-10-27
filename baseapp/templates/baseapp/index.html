@@ -1,13 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>User's Information</title>
-</head>
-<body>
-    {% for i in details  %}
-    <li>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>User's Information</title>
+    </head>
+    <body>
+        <h1 style="display: flex; justify-content: center;">All entries</h1>
+        <li>
+            {% for info in details %}
+
+                <ul><strong>Name: </strong> {{ info.Name }}</ul>
+                <ul><strong>Email: </strong> {{ info.email }}</ul>
+                <ul><strong>Phone: </strong> {{ info.phone }}</ul>
+                <ul><strong>User's Feedback: </strong> {{ info.user_feedback }}</ul>
+                <ul><strong>Contact User via Phone: </strong> {{ info.contact_via_phone }}</ul>
+                <ul><strong>Contact User via email: </strong> {{ info.contact_via_email }}</ul>
+                <strong>-----------------------------------------------------------------------  </strong>
         
-    </li>
-    
-</body>
-</html>
+            {% endfor %}
+        </li>
+        
+    </body>
+    </html>

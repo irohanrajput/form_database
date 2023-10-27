@@ -19,13 +19,4 @@ def form_view(request):
 
 def index_view(request):
     details = Details.objects.all()
-    return render(request, "baseapp/index.html", context={
-        "details": details
-        
-        # "name": details.name,
-        # "email": details.email,
-        # "Phone No: ": details.phone,
-        # "user_says": details.What_Users_Say,
-        # "passengers": flight.passengers.all(),
-        # "non_passengers":Passengers.objects.exclude(flights=flight).all()
-        })
+    return render(request, "baseapp/index.html", context={ "details": details })
