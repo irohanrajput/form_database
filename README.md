@@ -1,3 +1,1 @@
-# form_database
-A simple form that collects data in the database, backend supported by django.
-and there's a page that renders data from the database.
+A web form with Django for data collection, utilizing Django's Object-Relational Mapping (ORM) to manage the SQLite database. This project includes the ability to render data from the database when required.
